@@ -1,0 +1,46 @@
+\contentsline {mychapter}{\numberline {19}Từ trường}{2}{mychapter.0.19}%
+\contentsline {mychapter}{\numberline {20}Lực từ. Cảm ứng từ}{3}{mychapter.0.20}%
+\contentsline {mychapter}{\numberline {21}Từ trường của dòng điện trong các dây dẫn có hình dạng đặc biệt}{4}{mychapter.0.21}%
+\contentsline {section}{\numberline { 1 }Lý thuyết: Từ trường do dòng điện chạy trong dây dẫn thẳng dài gây ra}{4}{section.0.1}%
+\contentsline {section}{\numberline { 2 }Lý thuyết: Từ trường do dòng điện chạy trong khung dây dẫn tròn hoặc trong ống dây hình trụ gây ra}{7}{section.0.2}%
+\contentsline {mychapter}{\numberline {22}Lực Lo-ren-xơ}{9}{mychapter.0.22}%
+\contentsline {section}{\numberline { 1 }Lý thuyết: Lực Lo-ren-xơ }{9}{section.0.1}%
+\contentsline {section}{\numberline { 2 }Lý thuyết: Chuyển động của hạt mang điện trong từ trường đều (đọc thêm)}{10}{section.0.2}%
+\contentsline {chapter}{\numberline {1}\textbf {Ôn tập: Chương IV. Từ trường}}{12}{chapter.1}%
+\contentsline {section}{\numberline { 1 }Từ trường}{12}{section.1.1}%
+\contentsline {section}{\numberline { 2 }Lực từ. Cảm ứng từ}{15}{section.1.2}%
+\contentsline {section}{\numberline { 3 }Từ trường của dòng điện trong các dây dẫn có hình dạng đặc biệt}{18}{section.1.3}%
+\contentsline {section}{\numberline { 4 }Lực Lo-ren-xơ}{19}{section.1.4}%
+\contentsline {mychapter}{\numberline {23}Từ thông. Cảm ứng điện từ}{22}{mychapter.0.23}%
+\contentsline {mychapter}{\numberline {24}Suất điện động cảm ứng}{26}{mychapter.0.24}%
+\contentsline {mychapter}{\numberline {25}Tự cảm}{31}{mychapter.0.25}%
+\contentsline {section}{\numberline { 1 }Lý thuyết: Hiện tượng tự cảm. Hệ số tự cảm}{31}{section.1.1}%
+\contentsline {section}{\numberline { 2 }Lý thuyết: Suất điện động tự cảm}{32}{section.1.2}%
+\contentsline {chapter}{\numberline {2}\textbf {Ôn tập: Chương V. Cảm ứng điện từ}}{34}{chapter.2}%
+\contentsline {section}{\numberline { 1 }Từ thông. Cảm ứng điện từ}{34}{section.2.1}%
+\contentsline {section}{\numberline { 2 }Suất điện động cảm ứng}{39}{section.2.2}%
+\contentsline {section}{\numberline { 3 }Tự cảm}{41}{section.2.3}%
+\contentsline {mychapter}{\numberline {26}Khúc xạ ánh sáng}{45}{mychapter.0.26}%
+\contentsline {section}{\numberline { 1 }Lý thuyết: Khúc xạ ánh sáng. Chiết suất của môi trường}{45}{section.2.1}%
+\contentsline {section}{\numberline { 2 }Dạng bài: Khúc xạ ánh sáng. Chiết suất của môi trường}{48}{section.2.2}%
+\contentsline {mychapter}{\numberline {27}Phản xạ toàn phần}{57}{mychapter.0.27}%
+\contentsline {chapter}{\numberline {3}\textbf {Ôn tập: Chương VI. Khúc xạ ánh sáng}}{61}{chapter.3}%
+\contentsline {section}{\numberline { 1 }Khúc xạ ánh sáng}{61}{section.3.1}%
+\contentsline {section}{\numberline { 2 }Phản xạ toàn phần}{64}{section.3.2}%
+\contentsline {mychapter}{\numberline {28}Lăng kính}{68}{mychapter.0.28}%
+\contentsline {mychapter}{\numberline {29}Thấu kính mỏng}{69}{mychapter.0.29}%
+\contentsline {section}{\numberline { 1 }Lý thuyết: Thấu kính mỏng và tính chất quang học của thấu kính mỏng}{69}{section.3.1}%
+\contentsline {section}{\numberline { 2 }Lý thuyết: Đường đi của tia sáng qua thấu kính và vẽ ảnh tạo bởi thấu kính}{70}{section.3.2}%
+\contentsline {section}{\numberline { 3 }Lý thuyết: Xác định vị trí, tính chất, độ lớn của vật và ảnh}{76}{section.3.3}%
+\contentsline {section}{\numberline { 4 }Lý thuyết: Dời vật hoặc thấu kính}{93}{section.3.4}%
+\contentsline {mychapter}{\numberline {31}Mắt}{99}{mychapter.0.31}%
+\contentsline {section}{\numberline { 1 }Lý thuyết: Cấu tạo mắt và sự điều tiết của mắt}{99}{section.3.1}%
+\contentsline {section}{\numberline { 2 }Lý thuyết: Các tật của mắt và cách khắc phục}{99}{section.3.2}%
+\contentsline {mychapter}{\numberline {32}Kính lúp}{101}{mychapter.0.32}%
+\contentsline {chapter}{\numberline {4}\textbf {Ôn tập: Chương VII. Mắt. Các dụng cụ quang}}{103}{chapter.4}%
+\contentsline {section}{\numberline { 1 }Lăng kính}{103}{section.4.1}%
+\contentsline {section}{\numberline { 2 }Thấu kính mỏng}{106}{section.4.2}%
+\contentsline {section}{\numberline { 3 }Mắt}{113}{section.4.3}%
+\contentsline {section}{\numberline { 4 }Kính lúp}{117}{section.4.4}%
+\contentsline {chapter}{\numberline {5}\textbf {Danh mục trích dẫn đề thi Học kì II}}{121}{chapter.5}%
+\contentsfinish 

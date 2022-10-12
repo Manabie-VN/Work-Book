@@ -1,0 +1,842 @@
+%============ DECLARATION OF DEFAULT VALUE =====
+	\newcommand{\outfooter}{
+		Đề cương HK I - Vật lý 12 % Tên tài liệu ở footer
+	}
+	
+	\graphicspath{{../figs/}{../extra/}} % các thư mục chứa hình ảnh 
+	
+% ========== PAPER FORMAT ====================
+% --- paper size 
+	\geometry{
+		a4paper	% khổ giấy A4
+		,total={170mm,247mm} % kích thước văn bản 170mmx247mm 
+		,left=20mm % canh lề trái 
+		,top=20mm % canh lề trên 
+		,footskip=1.5cm % khoảng cách từ văn bản đến footer 
+	}	
+% --- line spacing -- choose 1 in 2 choices 
+ 	\onehalfspacing			% cách dòng đơn
+	%\doublespacing			% cách dòng đôi  
+
+
+% ========== DEFINE LEVELS  
+% --- define \mychapter level, between \part and \chapter
+	\titleclass{\mychapter}{top}[\part] 
+	\newcounter{mychapter}[part]
+	\renewcommand{\themychapter}{\arabic{mychapter}}
+	%\titlespacing{\mychapter}{1pc}{*4}{*2.3}
+	\titlespacing{\mychapter}{0pt}{1cm}{2.3em}
+	
+	
+% ========== MAIN TABLE OF CONTENTS =========
+	\contentsmargin{1.5em}
+% Part text styling
+%	\texorpdfstring{\setlength\fboxsep{0pt}\noindent\protect\colorbox{ocre!35}{\strut\protect\parbox[c][.8cm]{\linewidth}{\Large\sffamily\protect\centering #1\quad\mbox{}}}	
+	\titlecontents{part}
+		[3cm] % Left indentation
+		{\addvspace{20pt}
+			\begin{tikzpicture}[remember picture, overlay]%
+			\draw[fill=black!60,draw=black!60] (-3.,-.1) ;%
+			\pgftext[left,x=-2.5cm,y=0.23cm]{\color{black}\large\sc\bfseries Phần \thecontentslabel.};%
+			\end{tikzpicture}\color{black!60}\large\bfseries
+				} % Spacing and font options for parts
+		{}
+		{}
+		{}
+		[\addvspace{5pt}\color{black}]
+% My chapter text styling 
+	\titlecontents{mychapter}
+		[1.25em]
+		{}
+		{\bfseries Bài \thecontentslabel.\enspace}
+		{}
+		{\bfseries\titlerule*[0.75pc]{.}\contentspage} %bad formatting, but only here to produce a content line in ToC	
+% Chapter text styling
+	\titlecontents{chapter}
+		[1.25em] % Left indentation
+		{\bfseries} % Spacing and font options for chapters
+		{} % Formatting of numbered sections of this type
+		{} % Formatting of numberless sections of this type
+		{\bfseries\titlerule*[0.75pc]{.}\contentspage} % Formatting of the filler to the right of the heading and the page number
+
+\makeatletter
+% that a section has Level 2, rather than Level 1.
+\renewcommand{\l@section}{\@dottedtocline{2}{1.5em}{2.3em}}
+\makeatother
+\setcounter{tocdepth}{1}
+
+
+% ========== TITLE FORMATTING 
+% --- draw circle around chapter number 
+	\newcommand*{\circhap}[1]{
+		\tikz[baseline=(char.base)] % tạo ô bao quanh chữ
+		{
+			\node[
+			shape=circle % hình tròn
+			,fill=gray!50 % màu nền 
+			,inner sep=5pt % khoảng cách chữ và hình 
+			] 
+			(char)
+			{#1};
+		}
+	}	
+% --- 
+\AtBeginDocument{
+% --- PART format (level -1)
+	\titleclass{\part}{top}
+	\renewcommand{\thepart}{\Roman{part}}
+	\titleformat{\part}
+		[display]
+		{\bfseries\Huge}
+		{\filleft \LARGE PHẦN  \Huge\thepart}
+		{4ex}
+		{\titlerule
+		 %\pagecolor{green}	 
+		 \vspace{2ex}%
+		 \filcenter
+	 	}
+		[\vspace{2ex}%
+		 \titlerule
+		 %\pagecolor{white}
+		]
+		
+% --- MYCHAPTER format (level 0) 
+	\titleformat{\mychapter}
+		[display]
+		{\bfseries\huge}
+		{\filleft \LARGE\itshape Bài \Huge\themychapter}
+		{4ex}
+		{%\titlerule
+			\vspace{2ex}%
+			\filcenter}
+		[\vspace{2ex}%
+		%\titlerule
+		]
+
+% --- CHAPTER format (level 1)
+	\titleformat{\chapter}
+		[display]
+		{\normalfont\large\bfseries\centering}
+		{}
+		{-2cm}
+		{\Large}	
+		%\titleformat % định dạng tiêu đề 
+	\renewcommand{\thesection} % định dạng chỉ số subsection
+		{
+			\arabic{section} % kiểu số Ả rập 
+		}
+	\titleformat{\section} % chỉnh tiêu đề section  
+		[hang]
+		{\large\bfseries} % format 
+		{\thesection\!\!.} % không ghi chỉ mục 
+		{0.5em} % khoảng cách đến tiêu đề 
+		{} % trước khi bắt đầu 
+\renewcommand{\thesubsection} % định dạng chỉ số subsection
+{
+	\thesection\!\!.\,\arabic{subsection} % kiểu số Ả rập 
+}
+\titleformat % định dạng tiêu đề 
+{\subsection} %command 
+{\normalsize\bfseries} % format 
+{\thesubsection\!\!.} % đánh số 1,2,3,...
+{0.5em} % khoảng cách đến tiêu đề 
+{} % trước tiêu đề 
+[] % sau tiêu đề 	
+\renewcommand{\thesubsubsection} % định dạng chỉ số subsubsection 
+{
+	\thesubsection\!\!.\,\arabic{subsubsection} % kiểu số Ả rập 
+}
+\titleformat % định dạng tiêu đề 
+{\subsubsection} % command 
+{\normalsize\bfseries} % format 
+{\thesubsubsection\!\!.} % 1.1, 1.2
+{0.25em} % khoảng cách sau 1.1 
+{ } % trước tiêu đề 
+[\vspace*{-3mm}] % sau tiêu đề  	
+}
+
+
+% ----- định dạng Header và footer
+% --- trang văn bản thông thường  
+\pagestyle{fancy} 
+\fancyhf{}
+\renewcommand{\headrulewidth}
+{0pt} % độ dày đường kẻ ở header 
+\newcommand*\cirpage[1] % tạo hình tròn quanh số trang 
+{\tikz[baseline=(char.base)]
+	{
+		\node[
+		shape=circle
+		,draw=black
+		,fill=gray!0
+		,inner sep=2pt
+		]
+		(char)
+		{#1};
+	}
+}
+\fancyfoot[LO,RE] % footer - lề trong 
+{	
+	\small \outfooter % tên tài liệu lấy từ phần khai báo đầu file 
+}  
+\fancyfoot[CO,CE] % footer - giữa trang 
+{
+	\small \cirpage{\thepage}
+} 
+\fancyfoot[LE] % footer - lề ngoài 
+{
+	\vspace*{-11pt}
+	\hspace*{-1.1pt}\includegraphics[scale=0.03]{../extra/Logo.png} 
+}
+\fancyfoot[RO] % footer - lề ngoài 
+{
+	\vspace*{-11pt}
+	\includegraphics[scale=0.03]{../extra/Logo.png}\hspace*{-5pt}
+}
+% --- trang Part và Chapter title 
+\fancypagestyle{plain} % mặc định của trang Part và Chapter title 
+{
+	\fancyfoot[LO,RE]
+	{
+		\small \outfooter
+	}
+	\fancyfoot[CO,CE]
+	{
+		\small \cirpage{\thepage}
+	} % footer - giữa trang chẵn và lẻ 
+	\fancyfoot[LE]
+	{
+		\vspace*{-11pt}
+		\hspace*{-1.1pt}\includegraphics[scale=0.03]{../extra/Logo.png}
+	}
+	\fancyfoot[RO]
+	{
+		\vspace*{-11pt}
+		\includegraphics[scale=0.03]{../extra/Logo.png}\hspace*{-5pt}
+	}
+} % giống với trang thường 
+
+
+% --- Định dạng cấu trúc 
+\setcounter{secnumdepth}{4} % đánh số đến cấp thứ 4 của chỉ mục (subsubsection sẽ được đánh số)
+
+
+
+
+
+
+% ======== MANUAL DEFINITIONS VERSION 3.1415 ===
+% --- chừa chỗ trống tương ứng - văn bản gốc 
+\newcommand{\bltext}[1]{#1}
+\newcommand{\xtrule}{ }
+\newcommand{\phantomeqn}[2][b]{
+	#2
+}
+
+
+% --- tạo hộp Tóm tắt lý thuyết  
+\newcommand{\hops}[1] %lệnh hộp (tóm tắt lý thuyết)
+{	
+	\begin{flushright}
+		\leavevmode 
+		\begin{tcolorbox}
+			[
+			standard jigsaw
+			,opacityback=0
+			,opacityframe=1
+			,breakable
+			,pad at break*=2mm
+			%						,colback=white!20!white,
+			,colframe=black!70!white
+			,width=\textwidth
+			,before upper={\parindent15pt}
+			%						,watermark color=blue!3!white
+			%						,watermark text=\arabic{tcbbreakpart}
+			]
+			{
+				#1
+			}
+		\end{tcolorbox}
+	\end{flushright}
+}
+
+% --- định nghĩa môi trường mới - Dạng 
+\newcounter{dang} % định nghĩa chỉ số cho Dạng 
+[section] % chỉ số sẽ reset mỗi section 
+\newenvironment % định nghĩa môi trường mới 
+{dang} % tên môi trường 
+[1] % số thành phần phải có 
+{
+	\refstepcounter{dang} % chỉ số tương ứng 
+	\leavevmode
+	\begin{center}
+		\leavevmode \vspace{-0.6cm}
+		\begin{tcolorbox}
+			[
+			bicolor
+			,sidebyside
+			,width=0.93\textwidth
+			,lefthand width=2.7cm
+			,arc=0.5cm
+			%	,rounded corners
+			,colback=green!5
+			,colbacklower=white
+			,segmentation engine=path
+			,segmentation style=
+			{
+				line width=1.5pt
+				,solid
+			}
+			%						,borderline={0.3mm}{0.3mm}{black}
+			]
+			\large
+			{
+				\bf Mục tiêu \thedang
+			}
+			\tcblower
+			\centering\large
+			{
+				\bf #1
+			}
+		\end{tcolorbox}
+	\end{center}
+	
+} 
+
+{
+	
+	\par
+	\medskip	
+}
+
+% --- Định nghĩa lệnh tạo box Phương pháp giải 
+\newcommand{\ppgiai}[1] %lệnh hộp (tóm tắt lý thuyết)
+{
+	\leavevmode 
+	\begin{center}
+		\leavevmode 
+		\begin{tcolorbox}
+			[
+			%standard jigsaw
+			,enhanced
+			,opacityback=0
+			,opacityfill=1
+			,attach boxed title to top left={yshift=-3mm,yshifttext=-1mm}
+			,boxed title style=
+			{
+				size=small
+				,boxrule=1.5pt
+				,colframe=black!70!white
+				,colback=white!40!black
+			}
+			,title=\textbf{Phương pháp giải}
+			%						,opacityback=0
+			,opacityframe=1
+			,breakable
+			,pad at break*=2mm
+			,colback=white!20!white,
+			,colframe=black!70!white
+			,width=0.85\textwidth
+			,before upper={\parindent15pt}
+			%						,watermark color=blue!3!white
+			%						,watermark text=\arabic{tcbbreakpart}
+			]
+			{
+				#1
+			}
+		\end{tcolorbox}
+	\end{center}
+}
+
+% --- Định nghĩa lệnh tạo box Manatips
+\newcommand{\manatip}[1] %lệnh hộp (tóm tắt lý thuyết)
+{	\begin{center}
+		\leavevmode 
+		\begin{tcolorbox}
+			[
+			%standard jigsaw
+			,enhanced
+			,opacityback=0
+			,opacityfill=1
+			,attach boxed title to top left={yshift=-0.5mm,yshifttext=0mm}
+			,boxed title style=
+			{
+				size=small
+				,boxrule=1.5pt
+				,colframe=black!70!white
+				,colback=white!40!black
+			}
+			,title=\textbf{Manatip}
+			%						,opacityback=0
+			,opacityframe=1
+			,breakable
+			,pad at break*=2mm
+			,colback=white!20!white,
+			,colframe=black!70!white
+			,width=0.85\textwidth
+			,before upper={\parindent15pt}
+			%						,watermark color=blue!3!white
+			%						,watermark text=\arabic{tcbbreakpart}
+			]
+			{
+				#1
+			}
+		\end{tcolorbox}
+	\end{center}
+}
+% --- Định nghĩa lệnh tạo box Lưu ý khi dàn trang
+\newcommand{\notebox}[1] %lệnh hộp (tóm tắt lý thuyết)
+{	\begin{center}
+		\leavevmode 
+		\begin{tcolorbox}
+			[
+			%standard jigsaw
+			,enhanced
+			,opacityback=0
+			,opacityfill=1
+			,attach boxed title to top center={yshift=-0.5mm,yshifttext=0mm}
+			,boxed title style=
+			{
+				size=small
+				,boxrule=1.5pt
+				,colframe=red!90!black
+				,colback=red!90!black
+			}
+			,title=\textbf{Lưu ý khi dàn trang}
+			%						,opacityback=0
+			,opacityframe=1
+			,breakable
+			,pad at break*=2mm
+			,colback=yellow!60!white,
+			,colframe=red!90!black
+			,width=0.85\textwidth
+			,before upper={\parindent15pt}
+			%						,watermark color=blue!3!white
+			%						,watermark text=\arabic{tcbbreakpart}
+			]
+			{
+				#1
+			}
+		\end{tcolorbox}
+	\end{center}
+}
+
+% --- Định nghĩa lệnh tạo box Lưu ý 
+\newcommand{\luuy}[1] %lệnh hộp (tóm tắt lý thuyết)
+{	
+	\vspace*{-0.7cm}
+	\begin{center}
+		\leavevmode 
+		\begin{tcolorbox}
+			[
+			%standard jigsaw
+			,enhanced
+			,opacityback=0
+			,opacityfill=1
+			,attach boxed title to top right={yshift=-0.5mm,yshifttext=0mm}
+			,boxed title style=
+			{
+				size=small
+				,boxrule=1.5pt
+				,colframe=black!70!white
+				,colback=white!40!black
+			}
+			,title=\textbf{Lưu ý}
+			%						,opacityback=0
+			,opacityframe=1
+			,breakable
+			,pad at break*=2mm
+			,colback=white!20!white,
+			,colframe=black!70!white
+			,width=0.85\textwidth
+			,before upper={\parindent15pt}
+			%						,watermark color=blue!3!white
+			%						,watermark text=\arabic{tcbbreakpart}
+			]
+			{
+				#1
+			}
+		\end{tcolorbox}
+	\end{center}
+}
+
+
+
+% --- Tạo môi trường các đáp án trắc nghiệm 
+\makeatletter
+\@ifpackagelater{tasks}{2019/10/04}
+{
+	\NewTasksEnvironment[style=enumerate,label=\Alph*.,label-format={\bfseries},label-width=2ex,label-offset=1ex,item-indent=1.4cm]{mcq}[\item](1)
+	% Code which runs if the package date is 2019/10/04 or later
+}
+{
+	\NewTasks[style=enumerate,counter-format={\bfseries tsk[A].},label-width=2ex,label-offset=1.5ex,item-indent=1.6cm]{mcq}[\item](1)
+	% Code which runs if the package date is older than 2019/10/04
+}
+\makeatother
+%	\NewEnviron{mcq}[1][]
+%		{
+% Misc. stuff to preceed the tasks env here
+%			\def\tempbegin
+%				{%\vspace{1cm}
+%					\begin{twopartasks}
+%				}%
+%					\expandafter\tempbegin\BODY
+%					\end{twopartasks}
+% Misc. stuff to follow
+%		}
+
+% -- insert stars
+\newcommand\score[2]{%
+	\pgfmathsetmacro\pgfxa{#1 + 1}%
+	\tikzstyle{scorestars}=[star, star points=5, star point ratio=2.25, draw, inner sep=1.75pt, anchor=outer point 3]%
+	\begin{tikzpicture}[baseline]
+	\foreach \i in {1, ..., #2} {
+		\pgfmathparse{\i<=#1 ? "gray" : "white"}
+		\edef\starcolor{\pgfmathresult}
+		\draw (\i*2.5ex, 0ex) node[name=star\i, scorestars, fill=\starcolor]  {};
+	}
+	\end{tikzpicture}%
+}
+\newcommand{\mkstar}[1]{\protect\score{#1}{4}}
+
+\newcommand{\whiteBGstarBegin}{}
+\newcommand{\whiteBGstarEnd}{}
+
+% --- Định nghĩa môi trường ví dụ 
+\newcommand{\vidu}[3] % -- không đánh số, có lời giải 
+{
+	%\vspace{0.3cm}
+	\noindent\textbf{Ví dụ}\quad\mkstar{#1}
+	\needspace{4\baselineskip}
+	\begin{flushright}
+		\leavevmode\vspace{-15pt}
+		\begin{tcolorbox}[
+			standard jigsaw
+			,opacityback=0
+			,opacityframe=0
+			,width=0.95\textwidth
+			,breakable
+			,right=-4pt,top=-4pt,left=-4pt
+			,colframe=white
+			,colback=white
+			,before upper={\parindent15pt}
+			]
+			
+			{#2}
+			\needspace{4\baselineskip}
+%			\begin{center}
+%				\textbf{Giải:}
+%			\end{center}
+			
+			{#3}	
+		\end{tcolorbox}
+	\end{flushright}	
+}
+
+\newcommand{\viduon}[2] % không đánh số, không lời giải
+{
+	%\vspace{0.3cm}
+	\noindent\textbf{Ví dụ \quad\mkstar{#1}}
+	\needspace{4\baselineskip}
+	\begin{flushright}
+		\leavevmode\vspace{-15pt}
+		\begin{tcolorbox}[
+			standard jigsaw
+			,opacityback=0
+			,opacityframe=0
+			,width=0.95\textwidth
+			,breakable
+			,right=-4pt,top=-4pt,left=-4pt
+			,colframe=white
+			,colback=white
+			,before upper={\parindent15pt}
+			]
+			
+			
+			{#2}
+			
+		\end{tcolorbox}
+	\end{flushright}	
+}
+
+\newcounter{viduii}[dang] % chỉ số của ví dụ, reset khi bắt đầu dạng mới 
+
+\newcommand{\viduii}[3] % có đánh số, có lời giải 
+{
+	%\vspace{0.3cm}
+	\refstepcounter{viduii}
+	\needspace{4\baselineskip}
+	\noindent\textbf{Câu \theviduii~ \quad\mkstar{#1}}
+	\begin{flushright}
+		\leavevmode\vspace{-15pt}
+		\begin{tcolorbox}[
+			standard jigsaw
+			,opacityback=0
+			,opacityframe=0
+			,width=0.95\textwidth
+			,breakable
+			,right=-4pt,top=-4pt,left=-4pt
+			,colframe=white
+			,colback=white
+			,before upper={\parindent15pt}
+			]
+			
+			
+			{#2}
+			\needspace{4\baselineskip}
+%			\begin{center}
+%				\textbf{Giải:}
+%			\end{center}
+			
+			{#3}	
+		\end{tcolorbox}
+	\end{flushright}	
+}
+
+\newcounter{viduiii}[dang] % chỉ số của ví dụ, reset khi bắt đầu dạng mới 
+
+\newcommand{\viduiii}[3] % có đánh số, có lời giải 
+{
+	%\vspace{0.3cm}
+	\refstepcounter{viduiii}
+	\needspace{4\baselineskip}
+	\noindent\textbf{Câu \theviduiii~ \quad\mkstar{#1}}
+	\begin{flushright}
+		\leavevmode\vspace{-15pt}
+		\begin{tcolorbox}[
+			standard jigsaw
+			,opacityback=0
+			,opacityframe=0
+			,width=0.95\textwidth
+			,breakable
+			,right=-4pt,top=-4pt,left=-4pt
+			,colframe=white
+			,colback=white
+			,before upper={\parindent15pt}
+			]
+			
+			
+			{#2}
+			\needspace{4\baselineskip}
+			%			\begin{center}
+			%				\textbf{Giải:}
+			%			\end{center}
+			
+			{#3}	
+		\end{tcolorbox}
+	\end{flushright}	
+}
+
+\newcommand{\viduin}[2] % có đánh số, không lời giải 
+{
+	%\vspace{0.3cm}
+	\refstepcounter{viduii}
+	\needspace{4\baselineskip}
+	\noindent\textbf{Ví dụ \theviduii~ \quad\mkstar{#1}}
+	\begin{flushright}
+		\leavevmode\vspace{-10pt}
+		\begin{tcolorbox}[
+			standard jigsaw
+			,opacityback=0
+			,opacityframe=0
+			,width=0.95\textwidth
+			,breakable
+			,right=-4pt,top=-4pt,left=-4pt
+			,colframe=white
+			,colback=white
+			,before upper={\parindent15pt}
+			]
+			
+			
+			{#2}	
+			
+		\end{tcolorbox}
+	\end{flushright}	
+}
+
+% --- các ký tự tạo thêm 
+% --- ký hiệu song song 
+\newcommand{\parallelsum} % tên lệnh tạo ký hiệu song song 
+{
+	{\mathbin{\!/\mkern-5mu/\!}}
+}
+\newcommand{\dpara}{\parallelsum}
+% --- đồng nhất kí hiệu độ (đơn vị góc) thành ^\circ
+\renewcommand{\ang}[1]{#1^\circ}
+% --- ký hiệu suất điện động và công suất như sgk
+% ký hiệu từ font calligra 
+%	\DeclareFontFamily{U}{calligra}{}
+%	\DeclareFontShape{U}{calligra}{m}{n}{<->callig15}{}
+%	\newcommand{\calE} % lệnh tạo ký hiệu sđđ 
+%		{
+%			{\!\!\text{\usefont{U}{calligra}{m}{n}\textbf{E}}\,\,}
+%		}
+%	\newcommand{\calP} % lệnh tạo ký hiệu công suất 
+%		{
+%			{\!\!\text{\usefont{U}{calligra}{m}{n}P}\,\,}
+%		}
+% ký hiệu từ font Boondox 
+\DeclareFontFamily{U}{BOONDOX-cal}{\skewchar\font=45 }
+\DeclareFontShape{U}{BOONDOX-cal}{m}{n}{
+	<-> s*[1.05] BOONDOX-r-cal}{}
+\DeclareFontShape{U}{BOONDOX-cal}{b}{n}{
+	<-> s*[1.05] BOONDOX-b-cal}{}
+\DeclareMathAlphabet{\bdx}{U}{BOONDOX-cal}{m}{n}
+\SetMathAlphabet{\bdx}{bold}{U}{BOONDOX-cal}{b}{n}
+\DeclareMathAlphabet{\bbdx}{U}{BOONDOX-cal}{b}{n}
+\newcommand{\calE}{\bdx{E}}
+\newcommand{\calP}{\bdx{P}}
+
+% lệnh siunit 
+\newcommand{\xsi}[2]{\SI[parse-numbers=false]{#1}{#2}}
+
+% --- định nghĩa môi trường định luật 
+\newtheorem{thrPh}{Định luật}
+
+%--- hỗ trợ bảng 
+\renewcommand{\theadfont}
+{
+	\normalfont\bfseries
+} % làm ô trong bảng canh giữa + in đậm 
+\newcommand{\nfhead}[1] % tên lệnh 
+{
+	\renewcommand{\theadfont}
+	{
+		\normalfont
+	}
+	\thead{#1}
+	\renewcommand{\theadfont}
+	{
+		\normalfont\bfseries
+	} 
+} % làm ô trong bảng canh giữa 
+% lưu ý, khi sử dụng \thead và \nfhead thì phải xuống dòng thủ công.
+
+% --- tạo dòng trống 
+\newcommand{\Pointilles}[1]{%
+	\par\nobreak
+	\noindent\rule{0pt}{\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+	%\doublespacing
+	\multido{}{#1}{\noindent\makebox[\linewidth]{\dotfill}\endgraf}% ... dotted lines ...
+	%\onehalfspacing
+	\bigskip% Gap between dots and next paragraph
+}
+
+\newcommand{\Linesfill}[1]{%
+	\par\nobreak
+	\noindent\rule{0pt}{\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+	%\doublespacing
+	\multido{}{#1}{\noindent\rule{\linewidth}{0.2pt}\endgraf}% ... dotted lines ...
+	%\onehalfspacing
+	\bigskip% Gap between dots and next paragraph
+}	
+
+\newcommand{\Blfill}[1]{%
+	\par\nobreak
+	\noindent\rule{0pt}{\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+	%\doublespacing
+	\multido{}{#1}{\noindent\rule{\linewidth}{0pt}\endgraf}% ... dotted lines ...
+	%\onehalfspacing
+	\bigskip% Gap between dots and next paragraph
+}	
+
+\newcommand{\phantomline}[2][b]{
+	\ifx b#1 \Blfill{#2} \else
+	\ifx d#1	\Pointilles{#2} \else
+	\ifx l#1 \Linesfill{#2}
+	\fi\fi\fi 
+}
+
+% --- các lệnh che các đoạn văn bản 
+\newlength{\saveparindent}
+\AtBeginDocument{\setlength{\saveparindent}{\parindent}}
+
+\newsavebox{\mytext}
+
+\newcommand{\dotshide}[1]{%
+	\savebox{\mytext}{%
+		\parbox[t]{\columnwidth}{
+			\setlength{\parindent}{\saveparindent}
+			#1\par\xdef\savedprevdepth{\the\prevdepth}
+		}%
+	}%
+	\noindent
+	\pgfmathparse{int(round(\the\dp\mytext/\the\baselineskip))}
+	\Pointilles{\pgfmathresult}
+	\par
+	% restore \prevdepth to compute correctly the interline glue
+	\prevdepth\savedprevdepth
+}
+
+\newcommand{\lineshide}[1]{%
+	\savebox{\mytext}{%
+		\parbox[t]{\columnwidth}{
+			\setlength{\parindent}{\saveparindent}
+			#1\par\xdef\savedprevdepth{\the\prevdepth}
+		}%
+	}%
+	\noindent
+	%	\vrule height \ht\mytext % the height of \mytext
+	%	depth \dp\mytext  % the depth of \mytext
+	%	width \columnwidth
+	%	\newline	
+	\pgfmathparse{int(round(\the\dp\mytext/\the\baselineskip))}
+	\Linesfill{\pgfmathresult}
+	\par
+	% restore \prevdepth to compute correctly the interline glue
+	\prevdepth\savedprevdepth
+}
+
+\newcommand{\blankhide}[1]{%
+	\savebox{\mytext}{%
+		\parbox[t]{\columnwidth}{
+			\setlength{\parindent}{\saveparindent}
+			#1\par\xdef\savedprevdepth{\the\prevdepth}
+		}%
+	}%
+	\noindent
+	%	\vrule height \ht\mytext % the height of \mytext
+	%	depth \dp\mytext  % the depth of \mytext
+	%	width \columnwidth
+	%	\newline	
+	\pgfmathparse{int(round(\the\dp\mytext/\the\baselineskip))}
+	\Blfill{\pgfmathresult}
+	\par
+	% restore \prevdepth to compute correctly the interline glue
+	\prevdepth\savedprevdepth
+}
+
+\newcommand{\hide}[2][b]{
+	\ifx b#1 #2
+	\fi
+}
+
+% --- new commands workshop 
+\DeclareSIUnit\minute{\textrm{phút}}
+% 
+\newcommand{\bai}[1]{\part{#1}}
+\newcommand{\LO}[1]{\chapter{#1}}
+
+% --- equation number
+\renewcommand{\theequation}{\arabic{equation}}
+
+
+% --- testing 
+\newcommand{\hides}[1]{#1}
+% --- các lệnh bật / tắt dáp án
+\newcommand{\AnswersOff}{
+	\def\anskey{0}
+}
+\newcommand{\AnswersOn}{
+	\def\anskey{1}
+}	
+\newcommand{\loigiai}[1]{#1}
+\renewcommand{\loigiai}[1]{
+	\ifthenelse{\equal{\anskey}{1}}{}{#1}	% Chỉnh 0 và 1 tại đây
+}
+\def\anskey{1}
+\newcommand{\cauhoi}[1]{#1}
+\renewcommand{\cauhoi}[1]{
+	\ifthenelse{\equal{\anskey}{0}}{}{#1}	
+}

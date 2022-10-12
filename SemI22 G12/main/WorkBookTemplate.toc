@@ -1,0 +1,28 @@
+\contentsline {mychapter}{\numberline {1}Dao động điều hòa}{2}{mychapter.0.1}%
+\contentsline {mychapter}{\numberline {2}Con lắc lò xo}{9}{mychapter.0.2}%
+\contentsline {mychapter}{\numberline {3}Con lắc đơn}{15}{mychapter.0.3}%
+\contentsline {mychapter}{\numberline {4}Dao động tắt dần. Dao động cưỡng bức}{19}{mychapter.0.4}%
+\contentsline {mychapter}{\numberline {5}Tổng hợp hai dao động điều hòa cùng phương, cùng tần số. Phương pháp giản đồ Fresnel. Đồ thị dao động điều hòa}{22}{mychapter.0.5}%
+\contentsline {chapter}{\numberline {1}Ôn tập: Chương I. Dao động cơ}{28}{chapter.1}%
+\contentsline {mychapter}{\numberline {7}Sóng cơ và sự truyền sóng cơ}{35}{mychapter.0.7}%
+\contentsline {mychapter}{\numberline {8}Giao thoa sóng}{37}{mychapter.0.8}%
+\contentsline {mychapter}{\numberline {9}Sóng dừng}{43}{mychapter.0.9}%
+\contentsline {mychapter}{\numberline {10}Đặc trưng vật lý của âm}{47}{mychapter.0.10}%
+\contentsline {mychapter}{\numberline {11}Đặc trưng sinh lý của âm. Đồ thị dao động âm}{51}{mychapter.0.11}%
+\contentsline {chapter}{\numberline {2}Ôn tập: Chương II. Sóng cơ và sóng âm}{57}{chapter.2}%
+\contentsline {mychapter}{\numberline {12}Đại cương về dòng điện xoay chiều}{65}{mychapter.0.12}%
+\contentsline {mychapter}{\numberline {13}Các mạch điện xoay chiều}{69}{mychapter.0.13}%
+\contentsline {mychapter}{\numberline {14}Mạch có RLC mắc nối tiếp}{72}{mychapter.0.14}%
+\contentsline {mychapter}{\numberline {15}Công suất tiêu thụ của mạch điện xoay chiều. Hệ số công suất}{81}{mychapter.0.15}%
+\contentsline {mychapter}{\numberline {16}Truyền tải điện năng. Máy biến áp}{86}{mychapter.0.16}%
+\contentsline {mychapter}{\numberline {17}Máy phát điện xoay chiều}{92}{mychapter.0.17}%
+\contentsline {mychapter}{\numberline {18}Động cơ không đồng bộ ba pha}{94}{mychapter.0.18}%
+\contentsline {chapter}{\numberline {3}Ôn tập: Chương III. Dòng điện xoay chiều}{97}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Pre-course: Tính chất và cấu tạo hạt nhân}{105}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Pre-course: Năng lượng liên kết hạt nhân}{107}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Pre-course: Phóng xạ}{110}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Pre-course: Con lắc lò xo (nằm ngang và treo thẳng đứng)}{112}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Pre-course: Định luật Cu-lông, điện trường, công của lực điện}{114}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Pre-course: Định luật Ôm cho toàn mạch, dòng điện trong các môi trường}{122}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Pre-course: Từ thông. Cảm ứng điện từ - Tự cảm}{131}{chapter.10}%
+\contentsfinish 
